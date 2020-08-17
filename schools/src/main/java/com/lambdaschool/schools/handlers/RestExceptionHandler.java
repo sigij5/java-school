@@ -32,7 +32,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         errorDetail.setTimestamp(new Date());
         errorDetail.setStatus(HttpStatus.NOT_FOUND.value());
         errorDetail.setTitle("Resource Not Found");
-        errorDetail.setDetail(rnfe.getMessage());
+        errorDetail.setDetail("Found an error with School: " + rnfe.getMessage());
         errorDetail.setDeveloperMessage(rnfe.getClass().getName());
 
         errorDetail.setErrors(helperFunctions.getConstraintViolation(rnfe));
@@ -46,7 +46,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         errorDetail.setTimestamp(new Date());
         errorDetail.setStatus(status.value());
         errorDetail.setTitle("Rest Internal Exception");
-        errorDetail.setDetail(ex.getMessage());
+        errorDetail.setDetail("Found an error with School: " + ex.getMessage());
         errorDetail.setDeveloperMessage(ex.getClass().getName());
 
         errorDetail.setErrors(helperFunctions.getConstraintViolation(ex));
